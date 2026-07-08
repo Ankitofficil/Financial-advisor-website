@@ -1,0 +1,376 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKENS — "Meridian Wealth" private-bank navy & champagne
+   Single committed light theme (cool off-white).
+   ============================================================ */
+@theme {
+  /* Color */
+  --color-ink: #0b1f3a;         /* deep navy — primary text / dark ground */
+  --color-slate: #1e3a5f;       /* steel navy — secondary */
+  --color-gold: #c9a227;        /* champagne gold — garnish (dividers, CTAs) */
+  --color-gold-ink: #7e651d;    /* darkened gold — AA-safe gold TEXT on light */
+  --color-surface: #f7f8fa;     /* cool off-white — page ground */
+  --color-card: #ffffff;        /* elevated card */
+  --color-muted: #55607a;       /* muted text (navy-biased neutral) */
+  --color-hairline: #0b1f3a;    /* borders use ink at low opacity */
+  --color-positive: #1f7a53;    /* subtle growth green */
+
+  /* Type */
+  --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+
+  /* Fluid type scale (clamp) */
+  --text-display: clamp(2.6rem, 1.6rem + 4.4vw, 5rem);
+  --text-h1: clamp(2.1rem, 1.5rem + 2.6vw, 3.5rem);
+  --text-h2: clamp(1.7rem, 1.3rem + 1.6vw, 2.5rem);
+  --text-h3: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem);
+  --text-lead: clamp(1.1rem, 1.02rem + 0.4vw, 1.3rem);
+
+  /* Layout */
+  --container: 1200px;
+  --radius-lg: 14px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---- Base ----
+   Kept inside @layer base so Tailwind utilities (e.g. `text-white` on a
+   heading over a dark band) can still override these element defaults —
+   un-layered rules would beat every layered utility regardless of specificity. */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-delay: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  body {
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;   /* ~17px */
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    color: var(--color-ink);
+    text-wrap: balance;
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-gold) 35%, transparent);
+    color: var(--color-ink);
+  }
+}
+
+/* ---- Reusable primitives ---- */
+.container-x {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+}
+
+/* Uppercase eyebrow label */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold-ink);
+}
+
+/* The recurring "horizon line" motif — a short gold rule with a slow shimmer */
+.horizon {
+  width: 44px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-gold), #ecd98f, var(--color-gold));
+  background-size: 200% 100%;
+  animation: shimmer 4s ease-in-out infinite;
+  border: 0;
+}
+@keyframes shimmer {
+  from { background-position: 0% 0; }
+  to { background-position: 200% 0; }
+}
+
+/* Hairline border helper */
+.hairline {
+  border-color: color-mix(in srgb, var(--color-ink) 12%, transparent);
+}
+
+/* Focus visibility (a11y) */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-gold-ink);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Animated underline for nav / text links */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1.5px;
+  width: 100%;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-out);
+}
+.link-underline:hover::after,
+.link-underline[data-active="true"]::after {
+  transform: scaleX(1);
+}
+
+/* Button lift micro-interaction */
+.btn-lift {
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out),
+    background-color 0.25s var(--ease-out);
+}
+.btn-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Grayscale-to-color photo treatment */
+.photo-reveal {
+  filter: grayscale(1) contrast(1.02);
+  transition: filter 0.6s var(--ease-out);
+}
+.photo-reveal:hover {
+  filter: grayscale(0);
+}
+
+/* Section rhythm */
+.section {
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+/* Dark navy band — shared ground for CTA/credential bands; a soft
+   diagonal gradient reads richer than flat ink */
+.band-deep {
+  background: linear-gradient(135deg, #071527 0%, var(--color-ink) 45%, #17395f 100%);
+}
+
+/* Alternate section ground — a faint navy wash instead of the barely
+   perceptible white overlay, so the page rhythm reads at a glance */
+.section-alt {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-slate) 6%, var(--color-surface)),
+    color-mix(in srgb, var(--color-slate) 2%, var(--color-surface))
+  );
+}
+
+/* ---- Scroll reveals (CSS transition, IO-triggered; no anim lib) ----
+   Short travel + slightly longer ease reads calmer / more deliberate. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+/* Staggered children inside a RevealGroup */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.reveal-group[data-shown="true"] .reveal-item {
+  opacity: 1;
+  transform: none;
+}
+.reveal-group[data-shown="true"] .reveal-item:nth-child(2) { transition-delay: 0.08s; }
+.reveal-group[data-shown="true"] .reveal-item:nth-child(3) { transition-delay: 0.16s; }
+.reveal-group[data-shown="true"] .reveal-item:nth-child(4) { transition-delay: 0.24s; }
+.reveal-group[data-shown="true"] .reveal-item:nth-child(5) { transition-delay: 0.32s; }
+.reveal-group[data-shown="true"] .reveal-item:nth-child(6) { transition-delay: 0.4s; }
+.reveal-group[data-shown="true"] .reveal-item:nth-child(7) { transition-delay: 0.48s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---- CSS hero entrance (no JS gate → fast LCP) ---- */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.hero-rise {
+  animation: hero-rise 0.8s var(--ease-out) both;
+}
+.hero-rise-1 { animation-delay: 0.05s; }
+.hero-rise-2 { animation-delay: 0.14s; }
+.hero-rise-3 { animation-delay: 0.24s; }
+.hero-rise-4 { animation-delay: 0.34s; }
+.hero-rise-5 { animation-delay: 0.42s; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise { animation: none; }
+}
+
+/* Hand-drawn gold underline draws in after the headline settles.
+   Requires pathLength="1" on the SVG path. */
+@keyframes draw-underline {
+  to { stroke-dashoffset: 0; }
+}
+.anim-underline-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-underline 0.9s var(--ease-out) 0.85s forwards;
+}
+
+/* Subtle 3D tilt + lift for the hero snapshot card (hover-capable devices) */
+.card-tilt {
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+}
+@media (hover: hover) {
+  .card-tilt:hover {
+    transform: perspective(1100px) rotateX(1.4deg) rotateY(-1.6deg) translateY(-6px);
+  }
+}
+
+/* Light sweep across primary buttons on hover */
+.btn-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.btn-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.16) 50%,
+    transparent 65%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.7s var(--ease-out);
+  pointer-events: none;
+}
+.btn-sheen:hover::after {
+  transform: translateX(130%);
+}
+
+/* ---- Ambient / decorative animations (all CSS; reduced-motion handled
+   by the global override above, and `both` fill leaves end states intact) ---- */
+@keyframes float-slow {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -20px, 0); }
+}
+.anim-float {
+  animation: float-slow 9s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.anim-spin-slow {
+  animation: spin-slow 90s linear infinite;
+  transform-origin: center;
+}
+
+/* SVG line-draw: dasharray must be ≥ path length */
+@keyframes draw-line {
+  from { stroke-dashoffset: 480; }
+  to { stroke-dashoffset: 0; }
+}
+.anim-draw {
+  stroke-dasharray: 480;
+  animation: draw-line 1.8s var(--ease-out) 0.45s both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.anim-fade-late {
+  animation: fade-in 0.6s ease-out 1.7s both;
+}
+
+/* Soft radar ping for status dots */
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-positive) 45%, transparent); }
+  60% { box-shadow: 0 0 0 7px transparent; }
+}
+.anim-pulse-dot {
+  animation: pulse-dot 2.4s ease-out infinite;
+}
+
+/* ---- View transitions (route navigation) ----
+   Activated via app/template.tsx (<ViewTransition enter/exit>) with the
+   experimental.viewTransition flag in next.config.ts. Old content leaves
+   fast; new content arrives gently with a short rise. */
+::view-transition-old(.page-exit) {
+  animation: 180ms var(--ease-out) both vt-fade-out;
+}
+::view-transition-new(.page-enter) {
+  animation:
+    300ms var(--ease-out) 120ms both vt-fade-in,
+    460ms var(--ease-out) both vt-rise;
+}
+@keyframes vt-fade-out {
+  to { opacity: 0; }
+}
+@keyframes vt-fade-in {
+  from { opacity: 0; }
+}
+@keyframes vt-rise {
+  from { transform: translateY(12px); }
+}
+
+/* The sticky header is the user's spatial anchor — it must not animate.
+   `display: none` on the old snapshot prevents a double-header flash. */
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
