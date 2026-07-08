@@ -45,7 +45,7 @@ export function Header() {
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
         scrolled
-          ? "border-b hairline bg-[color-mix(in_srgb,var(--color-surface)_96%,white)] supports-[backdrop-filter]:bg-[color-mix(in_srgb,var(--color-surface)_82%,transparent)] supports-[backdrop-filter]:backdrop-blur-md"
+          ? "border-b hairline bg-[color-mix(in_srgb,var(--color-surface)_96%,black)] supports-[backdrop-filter]:bg-[color-mix(in_srgb,var(--color-surface)_82%,transparent)] supports-[backdrop-filter]:backdrop-blur-md"
           : "border-b border-transparent bg-transparent"
       )}
     >

@@ -5,7 +5,7 @@ import { RevealGroup } from "@/components/ui/Reveal";
 
 export function TrustBar() {
   return (
-    <div className="border-y hairline bg-white/50">
+    <div className="border-y hairline bg-white/[0.04]">
       <Container className="py-5">
         <RevealGroup>
           <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-center">

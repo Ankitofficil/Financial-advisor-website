@@ -28,7 +28,7 @@ export default function MobileDrawer({
       {open && (
         <>
           <motion.div
-            className="fixed inset-0 z-50 bg-ink/40 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -64,8 +64,8 @@ export default function MobileDrawer({
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "rounded-lg px-4 py-3 text-lg font-medium text-ink/85 transition-colors hover:bg-white hover:text-ink",
-                    isActive(item.href) && "bg-white text-ink"
+                    "rounded-lg px-4 py-3 text-lg font-medium text-ink/85 transition-colors hover:bg-white/10 hover:text-ink",
+                    isActive(item.href) && "bg-white/10 text-ink"
                   )}
                 >
                   {item.label}

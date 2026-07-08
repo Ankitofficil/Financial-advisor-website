@@ -82,7 +82,7 @@ export default async function ArticlePage({
           <ArticleBody body={article.body} />
 
           {/* Article-level compliance note */}
-          <div className="mt-12 rounded-[var(--radius-lg)] border hairline bg-white/60 p-6 text-[0.85rem] text-muted">
+          <div className="mt-12 rounded-[var(--radius-lg)] border hairline bg-white/[0.04] p-6 text-[0.85rem] text-muted">
             {/* TODO(client): confirm this disclosure with compliance. */}
             <strong className="font-semibold text-ink/80">
               Educational content only.

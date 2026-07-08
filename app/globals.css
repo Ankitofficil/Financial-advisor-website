@@ -1,20 +1,21 @@
 @import "tailwindcss";
 
 /* ============================================================
-   DESIGN TOKENS — "Meridian Wealth" heritage burgundy & cream
-   Single committed light theme (warm cream).
+   DESIGN TOKENS — "Meridian Wealth" emerald luxe (dark green & gold)
+   Single committed DARK theme. `ink` is the LIGHT text color here;
+   dark grounds come from surface/card/band tokens.
    ============================================================ */
 @theme {
   /* Color */
-  --color-ink: #3b1220;         /* deep burgundy — primary text / dark ground */
-  --color-slate: #6b2237;       /* wine — secondary */
-  --color-gold: #b08d3e;        /* muted brass — garnish (dividers, CTAs) */
-  --color-gold-ink: #7a6221;    /* darkened brass — AA-safe brass TEXT on light */
-  --color-surface: #faf6f0;     /* warm cream — page ground */
-  --color-card: #ffffff;        /* elevated card */
-  --color-muted: #6e5a60;       /* muted text (plum-biased neutral) */
-  --color-hairline: #3b1220;    /* borders use ink at low opacity */
-  --color-positive: #1f7a53;    /* subtle growth green */
+  --color-ink: #e9f2ec;         /* mint ivory — primary text */
+  --color-slate: #4fae87;       /* emerald — secondary accents */
+  --color-gold: #d9b95c;        /* warm gold — garnish (dividers, CTAs) */
+  --color-gold-ink: #e0c36b;    /* brightened gold — AA-safe gold TEXT on dark */
+  --color-surface: #0b1512;     /* near-black green — page ground */
+  --color-card: #12211b;        /* raised dark panel */
+  --color-muted: #93a89c;       /* muted text (gray-green, light) */
+  --color-hairline: #e9f2ec;    /* borders use ink at low opacity */
+  --color-positive: #4cc38a;    /* growth green, brightened for dark */
 
   /* Type */
   --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
@@ -166,14 +167,14 @@
   padding-block: clamp(4rem, 8vw, 7rem);
 }
 
-/* Dark burgundy band — shared ground for CTA/credential bands; a soft
-   diagonal gradient reads richer than flat ink */
+/* Rich emerald band — shared ground for CTA/credential bands; slightly
+   lighter than the page so it still reads as a distinct dark band */
 .band-deep {
-  background: linear-gradient(135deg, #2a0c16 0%, var(--color-ink) 45%, #5a1d2f 100%);
+  background: linear-gradient(135deg, #0d241b 0%, #123528 45%, #1b4a36 100%);
 }
 
-/* Alternate section ground — a faint wine wash instead of the barely
-   perceptible white overlay, so the page rhythm reads at a glance */
+/* Alternate section ground — a faint emerald wash instead of the barely
+   perceptible overlay, so the page rhythm reads at a glance */
 .section-alt {
   background: linear-gradient(
     180deg,

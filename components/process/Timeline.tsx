@@ -76,7 +76,7 @@ export function Timeline() {
                     : "md:pr-16 md:text-right",
                 ].join(" ")}
               >
-                <div className="rounded-[var(--radius-lg)] border hairline bg-card p-7 shadow-[0_20px_44px_-30px_rgba(59,18,32,0.4)]">
+                <div className="rounded-[var(--radius-lg)] border hairline bg-card p-7 shadow-[0_20px_44px_-30px_rgba(0,10,6,0.4)]">
                   <div
                     className={[
                       "flex items-center gap-3",

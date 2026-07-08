@@ -74,25 +74,25 @@ export default function ContactPage() {
                 aria-label="Map placeholder showing office location"
               >
                 <svg viewBox="0 0 400 250" className="h-full w-full" preserveAspectRatio="xMidYMid slice">
-                  <rect width="400" height="250" fill="#eef1f3" />
+                  <rect width="400" height="250" fill="#101b16" />
                   {/* faux streets */}
                   {[40, 100, 160, 210].map((y) => (
-                    <line key={`h${y}`} x1="0" y1={y} x2="400" y2={y} stroke="#d6dde2" strokeWidth="6" />
+                    <line key={`h${y}`} x1="0" y1={y} x2="400" y2={y} stroke="#1d2c24" strokeWidth="6" />
                   ))}
                   {[70, 160, 250, 330].map((x) => (
-                    <line key={`v${x}`} x1={x} y1="0" x2={x} y2="250" stroke="#d6dde2" strokeWidth="6" />
+                    <line key={`v${x}`} x1={x} y1="0" x2={x} y2="250" stroke="#1d2c24" strokeWidth="6" />
                   ))}
-                  <rect x="70" y="100" width="90" height="60" fill="#e2e8ec" />
+                  <rect x="70" y="100" width="90" height="60" fill="#16241d" />
                   {/* pin */}
                   <g transform="translate(200,110)">
                     <path
                       d="M0 40 C -18 12, -18 -4, 0 -22 C 18 -4, 18 12, 0 40 Z"
-                      fill="#3b1220"
+                      fill="#e9f2ec"
                     />
-                    <circle cx="0" cy="-4" r="7" fill="#b08d3e" />
+                    <circle cx="0" cy="-4" r="7" fill="#d9b95c" />
                   </g>
                 </svg>
-                <span className="absolute bottom-3 left-3 rounded-full bg-white/85 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-ink/70 backdrop-blur">
+                <span className="absolute bottom-3 left-3 rounded-full bg-black/55 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-white/85 backdrop-blur">
                   {/* TODO(client): replace with an embedded Google/Mapbox map */}
                   Map placeholder
                 </span>

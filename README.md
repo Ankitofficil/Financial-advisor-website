@@ -76,8 +76,9 @@ scripts/
 
 Tokens live in [`app/globals.css`](app/globals.css) under `@theme`.
 
-- **Color** — deep burgundy `#3B1220`, wine `#6B2237`, muted brass `#B08D3E` (garnish only) with a
-  darkened `#7A6221` for brass **text** (WCAG-AA safe), warm cream `#FAF6F0`, positive green `#1F7A53`.
+- **Color** — dark "emerald luxe" theme: near-black green ground `#0B1512`, raised panels `#12211B`,
+  mint-ivory text `#E9F2EC`, emerald `#4FAE87`, warm gold `#D9B95C` (garnish + CTAs) with brightened
+  `#E0C36B` for gold **text** (WCAG-AA safe on dark), positive green `#4CC38A`.
 - **Type** — Fraunces (serif display) + Inter (body/UI), on a fluid `clamp()` scale.
 - **Motif** — a gold "horizon line" rule and a bespoke meridian logo mark carried across pages.
 - **Theme** — a single, deliberately-committed warm-paper light theme (private-bank restraint).

@@ -34,8 +34,8 @@ export function Portrait({
       <svg viewBox="0 0 400 500" className="h-full w-full" preserveAspectRatio="xMidYMid slice">
         <defs>
           <linearGradient id={`bg-${initials}`} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#6b2237" />
-            <stop offset="100%" stopColor="#3b1220" />
+            <stop offset="0%" stopColor="#1b4a36" />
+            <stop offset="100%" stopColor="#0d241b" />
           </linearGradient>
         </defs>
         <rect width="400" height="500" fill={`url(#bg-${initials})`} />
@@ -43,7 +43,7 @@ export function Portrait({
         {[120, 180, 240].map((r) => (
           <circle key={r} cx="200" cy="250" r={r} fill="none" stroke="#ffffff" strokeOpacity="0.05" />
         ))}
-        <line x1="0" y1="250" x2="400" y2="250" stroke="#b08d3e" strokeOpacity="0.3" />
+        <line x1="0" y1="250" x2="400" y2="250" stroke="#d9b95c" strokeOpacity="0.3" />
         {/* simple figure silhouette */}
         <circle cx="200" cy="205" r="62" fill="#ffffff" fillOpacity="0.1" />
         <path
@@ -64,7 +64,7 @@ export function Portrait({
           {initials.toUpperCase()}
         </text>
       </svg>
-      <span className="absolute bottom-3 right-3 rounded-full bg-white/85 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-ink/70 backdrop-blur">
+      <span className="absolute bottom-3 right-3 rounded-full bg-black/55 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-white/85 backdrop-blur">
         Photo placeholder
       </span>
     </div>

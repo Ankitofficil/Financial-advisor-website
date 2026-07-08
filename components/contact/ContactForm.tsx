@@ -223,7 +223,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="btn-lift mt-6 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-ink px-6 font-semibold text-white hover:bg-slate disabled:pointer-events-none disabled:opacity-70 sm:w-auto"
+        className="btn-lift mt-6 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-gold px-6 font-semibold text-[#0c1712] hover:bg-[color-mix(in_srgb,var(--color-gold)_85%,white)] disabled:pointer-events-none disabled:opacity-70 sm:w-auto"
       >
         {status === "submitting" ? (
           <>

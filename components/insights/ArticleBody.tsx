@@ -35,7 +35,7 @@ export function ArticleBody({ body }: { body: Article["body"] }) {
           case "callout":
             return (
               <Reveal key={i}>
-                <blockquote className="my-2 rounded-r-lg border-l-[3px] border-gold bg-white/70 py-4 pl-5 pr-4">
+                <blockquote className="my-2 rounded-r-lg border-l-[3px] border-gold bg-white/[0.05] py-4 pl-5 pr-4">
                   <p className="font-serif text-[1.2rem] leading-relaxed text-slate">
                     {block.text}
                   </p>

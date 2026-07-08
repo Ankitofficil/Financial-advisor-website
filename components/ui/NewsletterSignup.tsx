@@ -24,7 +24,7 @@ export function NewsletterSignup() {
   return (
     <section className="section">
       <Container>
-        <div className="overflow-hidden rounded-[var(--radius-lg)] border hairline bg-white/60 px-6 py-10 sm:px-10">
+        <div className="overflow-hidden rounded-[var(--radius-lg)] border hairline bg-white/[0.04] px-6 py-10 sm:px-10">
           <div className="grid items-center gap-8 md:grid-cols-[1.2fr_1fr]">
             <div>
               <p className="eyebrow">Stay informed</p>
