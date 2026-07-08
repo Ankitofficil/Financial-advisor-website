@@ -13,9 +13,9 @@ export function Hero() {
     <section className="relative overflow-hidden">
       {/* Ambient background: soft navy wash + faint meridian arcs */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="anim-float absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(30,58,95,0.08),transparent_70%)]" />
+        <div className="anim-float absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(107,34,55,0.07),transparent_70%)]" />
         <div
-          className="anim-float absolute -left-32 bottom-[-160px] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(201,162,39,0.07),transparent_70%)]"
+          className="anim-float absolute -left-32 bottom-[-160px] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(176,141,62,0.07),transparent_70%)]"
           style={{ animationDelay: "-4.5s" }}
         />
         <svg
@@ -92,7 +92,7 @@ export function Hero() {
 /** A calm, illustrative "plan on a page" card — no real data, purely decorative. */
 function PlanSnapshot() {
   return (
-    <div className="card-tilt relative rounded-[var(--radius-lg)] border hairline bg-card p-6 shadow-[0_30px_60px_-30px_rgba(11,31,58,0.35)] hover:shadow-[0_40px_72px_-32px_rgba(11,31,58,0.45)] sm:p-8">
+    <div className="card-tilt relative rounded-[var(--radius-lg)] border hairline bg-card p-6 shadow-[0_30px_60px_-30px_rgba(59,18,32,0.35)] hover:shadow-[0_40px_72px_-32px_rgba(59,18,32,0.45)] sm:p-8">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">

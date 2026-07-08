@@ -87,9 +87,9 @@ export default function ContactPage() {
                   <g transform="translate(200,110)">
                     <path
                       d="M0 40 C -18 12, -18 -4, 0 -22 C 18 -4, 18 12, 0 40 Z"
-                      fill="#0b1f3a"
+                      fill="#3b1220"
                     />
-                    <circle cx="0" cy="-4" r="7" fill="#c9a227" />
+                    <circle cx="0" cy="-4" r="7" fill="#b08d3e" />
                   </g>
                 </svg>
                 <span className="absolute bottom-3 left-3 rounded-full bg-white/85 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-ink/70 backdrop-blur">

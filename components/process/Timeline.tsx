@@ -51,9 +51,9 @@ export function Timeline() {
               <motion.span
                 aria-hidden
                 initial={reduce ? false : { scale: 0.4, opacity: 0 }}
-                whileInView={reduce ? undefined : { scale: 1, opacity: 1 }}
+                whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true, margin: "0px 0px -30% 0px" }}
-                transition={{ duration: 0.5, ease }}
+                transition={{ duration: reduce ? 0 : 0.5, ease }}
                 className="absolute top-1 left-[13px] z-10 flex h-[19px] w-[19px] items-center justify-center rounded-full border-2 border-gold bg-surface md:left-1/2 md:-translate-x-1/2"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-gold" />
@@ -62,9 +62,13 @@ export function Timeline() {
               {/* Card */}
               <motion.div
                 initial={reduce ? false : { opacity: 0, y: 26 }}
-                whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                // whileInView stays ungated: `reduce` is false during SSR, so
+                // the initial opacity-0 style is in the server HTML — gating
+                // the target on the hydrated value would leave cards invisible
+                // for reduced-motion users. Gate the duration instead.
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "0px 0px -20% 0px" }}
-                transition={{ duration: 0.6, ease }}
+                transition={{ duration: reduce ? 0 : 0.6, ease }}
                 className={[
                   "pl-14 md:w-1/2 md:pl-0",
                   rightSide
@@ -72,7 +76,7 @@ export function Timeline() {
                     : "md:pr-16 md:text-right",
                 ].join(" ")}
               >
-                <div className="rounded-[var(--radius-lg)] border hairline bg-card p-7 shadow-[0_20px_44px_-30px_rgba(11,31,58,0.4)]">
+                <div className="rounded-[var(--radius-lg)] border hairline bg-card p-7 shadow-[0_20px_44px_-30px_rgba(59,18,32,0.4)]">
                   <div
                     className={[
                       "flex items-center gap-3",

@@ -18,7 +18,7 @@ export function Testimonials() {
         <RevealGroup className="mt-12 grid gap-6 lg:grid-cols-3">
           {testimonials.map((t) => (
             <RevealItem key={t.name} className="h-full">
-              <figure className="flex h-full flex-col rounded-[var(--radius-lg)] border hairline bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--color-gold)_45%,transparent)] hover:shadow-[0_24px_48px_-28px_rgba(11,31,58,0.35)]">
+              <figure className="flex h-full flex-col rounded-[var(--radius-lg)] border hairline bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--color-gold)_45%,transparent)] hover:shadow-[0_24px_48px_-28px_rgba(59,18,32,0.35)]">
                 <Quote className="h-7 w-7 shrink-0 text-gold/70" aria-hidden />
                 <blockquote className="mt-4 flex-1 font-serif text-[1.15rem] leading-relaxed text-ink">
                   {t.quote}

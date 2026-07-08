@@ -27,8 +27,9 @@ const disclosureLinks = [
 ];
 
 export function Footer() {
+  // pb-24 on mobile keeps the last lines clear of the fixed MobileCtaBar
   return (
-    <footer className="mt-auto border-t hairline bg-white/60">
+    <footer className="mt-auto border-t hairline bg-white/60 pb-24 sm:pb-0">
       <div className="container-x grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr] lg:gap-16">
         {/* Brand + contact */}
         <div>

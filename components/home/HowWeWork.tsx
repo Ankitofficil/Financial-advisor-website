@@ -35,7 +35,7 @@ export function HowWeWork() {
         <RevealGroup className="mt-12 grid gap-6 md:grid-cols-3">
           {steps.map((s) => (
             <RevealItem key={s.n}>
-              <div className="group h-full rounded-[var(--radius-lg)] border hairline bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--color-gold)_50%,transparent)] hover:shadow-[0_24px_48px_-28px_rgba(11,31,58,0.4)]">
+              <div className="group h-full rounded-[var(--radius-lg)] border hairline bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--color-gold)_50%,transparent)] hover:shadow-[0_24px_48px_-28px_rgba(59,18,32,0.4)]">
                 <div className="flex items-baseline gap-3">
                   <span className="font-serif text-2xl text-gold-ink">{s.n}</span>
                   <span className="h-px flex-1 bg-[color-mix(in_srgb,var(--color-ink)_10%,transparent)]" />

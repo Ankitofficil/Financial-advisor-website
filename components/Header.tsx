@@ -75,10 +75,17 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button href={CTA_HREF} size="md" className="hidden sm:inline-flex">
-            <CalendarClock className="h-4 w-4" aria-hidden />
-            {CTA_LABEL}
-          </Button>
+          {/* Desktop-only (matches the lg nav breakpoint): on mobile/tablet
+              the CTA lives in the drawer and the bottom bar instead.
+              Wrapper div, not className on Button: the base `inline-flex`
+              utility would win over `hidden` in the cascade (cn() doesn't
+              resolve conflicts). */}
+          <div className="hidden lg:block">
+            <Button href={CTA_HREF} size="sm">
+              <CalendarClock className="h-4 w-4" aria-hidden />
+              {CTA_LABEL}
+            </Button>
+          </div>
 
           {/* Mobile menu button */}
           <button

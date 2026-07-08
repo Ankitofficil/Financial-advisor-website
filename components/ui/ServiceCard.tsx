@@ -16,7 +16,7 @@ export function ServiceCard({
       href={`/services#${service.slug}`}
       className={cn(
         "group flex h-full flex-col rounded-[var(--radius-lg)] border hairline bg-card p-7 transition-all duration-300",
-        "hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--color-gold)_60%,transparent)] hover:shadow-[0_28px_56px_-30px_rgba(11,31,58,0.42)]"
+        "hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--color-gold)_60%,transparent)] hover:shadow-[0_28px_56px_-30px_rgba(59,18,32,0.42)]"
       )}
     >
       <div className="flex items-start justify-between">

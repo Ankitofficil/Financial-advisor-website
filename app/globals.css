@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 /* ============================================================
-   DESIGN TOKENS — "Meridian Wealth" private-bank navy & champagne
-   Single committed light theme (cool off-white).
+   DESIGN TOKENS — "Meridian Wealth" heritage burgundy & cream
+   Single committed light theme (warm cream).
    ============================================================ */
 @theme {
   /* Color */
-  --color-ink: #0b1f3a;         /* deep navy — primary text / dark ground */
-  --color-slate: #1e3a5f;       /* steel navy — secondary */
-  --color-gold: #c9a227;        /* champagne gold — garnish (dividers, CTAs) */
-  --color-gold-ink: #7e651d;    /* darkened gold — AA-safe gold TEXT on light */
-  --color-surface: #f7f8fa;     /* cool off-white — page ground */
+  --color-ink: #3b1220;         /* deep burgundy — primary text / dark ground */
+  --color-slate: #6b2237;       /* wine — secondary */
+  --color-gold: #b08d3e;        /* muted brass — garnish (dividers, CTAs) */
+  --color-gold-ink: #7a6221;    /* darkened brass — AA-safe brass TEXT on light */
+  --color-surface: #faf6f0;     /* warm cream — page ground */
   --color-card: #ffffff;        /* elevated card */
-  --color-muted: #55607a;       /* muted text (navy-biased neutral) */
-  --color-hairline: #0b1f3a;    /* borders use ink at low opacity */
+  --color-muted: #6e5a60;       /* muted text (plum-biased neutral) */
+  --color-hairline: #3b1220;    /* borders use ink at low opacity */
   --color-positive: #1f7a53;    /* subtle growth green */
 
   /* Type */
@@ -100,7 +100,7 @@
 .horizon {
   width: 44px;
   height: 2px;
-  background: linear-gradient(90deg, var(--color-gold), #ecd98f, var(--color-gold));
+  background: linear-gradient(90deg, var(--color-gold), #e3c87b, var(--color-gold));
   background-size: 200% 100%;
   animation: shimmer 4s ease-in-out infinite;
   border: 0;
@@ -166,13 +166,13 @@
   padding-block: clamp(4rem, 8vw, 7rem);
 }
 
-/* Dark navy band — shared ground for CTA/credential bands; a soft
+/* Dark burgundy band — shared ground for CTA/credential bands; a soft
    diagonal gradient reads richer than flat ink */
 .band-deep {
-  background: linear-gradient(135deg, #071527 0%, var(--color-ink) 45%, #17395f 100%);
+  background: linear-gradient(135deg, #2a0c16 0%, var(--color-ink) 45%, #5a1d2f 100%);
 }
 
-/* Alternate section ground — a faint navy wash instead of the barely
+/* Alternate section ground — a faint wine wash instead of the barely
    perceptible white overlay, so the page rhythm reads at a glance */
 .section-alt {
   background: linear-gradient(

@@ -27,7 +27,7 @@ export function PageHero({
   return (
     <section className="relative overflow-hidden border-b hairline">
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="anim-float absolute -left-40 -top-40 h-[440px] w-[440px] rounded-full bg-[radial-gradient(circle,rgba(30,58,95,0.07),transparent_70%)]" />
+        <div className="anim-float absolute -left-40 -top-40 h-[440px] w-[440px] rounded-full bg-[radial-gradient(circle,rgba(107,34,55,0.06),transparent_70%)]" />
       </div>
       <Container className="relative pb-14 pt-14 sm:pt-20 lg:pb-20 lg:pt-24">
         <motion.p className="eyebrow" {...rise(0.02)}>
